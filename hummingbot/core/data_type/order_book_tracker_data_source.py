@@ -84,6 +84,7 @@ class OrderBookTrackerDataSource(metaclass=ABCMeta):
             except Exception:
                 self.logger().exception(
                     "Unexpected error occurred when listening to order book streams. Retrying in 5 seconds...",
+                    exc_info=True,
                 )
                 await self._sleep(5.0)
             finally:
@@ -150,7 +151,8 @@ class OrderBookTrackerDataSource(metaclass=ABCMeta):
             except asyncio.CancelledError:
                 raise
             except Exception:
-                self.logger().exception("Unexpected error when processing public trade updates from exchange")
+                self.logger().exception("Unexpected error when processing public trade updates from exchange", exc_info=True)
+                await self._sleep(30.0)
 
     async def _parse_trade_message(self, raw_message: Dict[str, Any], message_queue: asyncio.Queue):
         """

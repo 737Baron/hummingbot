@@ -1,0 +1,10 @@
+{
+  "test/connector/exchange/altmarkets/test_altmarkets_auth.py": true,
+  "test/connector/exchange/gate_io/test_gate_io_auth.py": true,
+  "test/connector/exchange/gate_io/test_gate_io_order_book_tracker.py": true,
+  "test/connector/exchange/gate_io/test_gate_io_order_status.py": true,
+  "test/connector/exchange/gate_io/test_gate_io_user_stream_tracker.py": true,
+  "test/connector/exchange/wazirx/test_wazirx_exchange.py": true,
+  "test/debug/test_config_process.py": true,
+  "test/debug/test_order_expiration.py": true
+}
